@@ -67,15 +67,19 @@ sites:
 ### Section 2 - Routing 
 
 - Basic Routing and Views
+
 /routes/web.php se definen las rutas del proyecto
 /resources/view/welcome.blade.php en este directorio se definen las vistas
 
 - Pass Request Data to Views
+
 Como pasar parametros por url a la vista
 
 - Route Wildcards 
+
 Como parametrizar las rutas y gestionar el contenido dependiendo del parametro
 
 - Routing to Controllers
+
 Gestionar las rutas a través de controladores y como crear controladores con php artisan
 
