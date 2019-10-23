@@ -13,13 +13,8 @@ Laravel realiza los siguientes pasos en cada llamada:
 - Install PHP, MySQL and Composer
 
 Instalación del entorno de desarrollo, dependencias e IDE
-PHP >=7.2
 
-MySQL 
-
-Se puede utilizar XAMPP para PHP y MySQL 
-
-Composer 
+PHP >=7.2, MySQL y Composer
 
 - The Laravel Installer
 
@@ -95,6 +90,8 @@ sites:
 Tips: Comandos vagrant 
 ```sh
 vagrant up 
+vagrant ssh
+vagrant halt
 vagrant reload --provision
 vagrant destroy
 vagrant box list
