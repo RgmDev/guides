@@ -12,10 +12,13 @@ Laravel realiza los siguientes pasos en cada llamada:
 
 - Install PHP, MySQL and Composer
 
-Instalación del entorno de desarrollo,dependencias e IDE de desarrollo
-PHP 7.2.8
+Instalación del entorno de desarrollo, dependencias e IDE
+PHP >=7.2
+
 MySQL 
+
 Se puede utilizar XAMPP para PHP y MySQL 
+
 Composer 
 
 - The Laravel Installer
@@ -41,42 +44,63 @@ php artisan serve
 
 ```
 
-- Laravel Valet Setup
+- Laravel Valet (Homestead) Setup
 
 Revisar la documentacion oficial de laravel para instalar Valet (Homestead)
 
 Instalar VirtualBox 6.x  y Vagrant 2.2.6
 
-
-
+Instalar la Homestead Vagrant Box
 ```sh
-# Instalar Nirtual box de la pagina oficial (https://www.virtualbox.org/wiki/Linux_Downloads)
-vboxmanage --version
-#Instalar vagrant, descargar el .deb de la pagina oficial
-sudo dpkg -i vagrant_2.2.6_x86_64.deb
-vagrant --version
-
-# Añadir homestead box
 vagrant box add laravel/homestead
+```
 
-# Clonar el repositorio y activar la rama con la ultima versión estable del proyecto
+Instalar Homestead
+```sh
 git clone https://github.com/laravel/homestead.git ~/Homestead
 cd ~/Homestead
 git checkout release
-#Iniciar el proyecto (Se crea el archivo Homestead.yaml)
-cd ~/Homestead
-bash init.sh # en WIndows init.bat
 
-# Configurar el archivo Homestead.yaml (si se cambia este archivo ejecutar: vagrant reload --provision)
+# Inciar configuracion (Creara el archivo Homestead.yaml)
+# Mac / Linux o Consola Git de Windows...
+bash init.sh
+# Windows...
+init.bat
+```
+
+Configurar Homestead (Homestead.yaml)
+```sh
+# Configurar el proveedor de maquina virtual 
+# En el archivo Homestead.yaml (virtualbox, vmware_fusion, vmware_workstation, parallels or hyperv)
+provider: virtualbox
+
+# Configurar carpetas compartidas
 folders:
 	- map: ~/proyectos/project-name 
 	  to: /home/vagrant/project-name
-
+	 
+# Configurar Nginx
+# Si se cambia la propiedad sites se aprovisiona la Homestead Box
+vagrant reload --provision
 sites:
     - map: homestead.test
       to: /home/vagrant/project-name/public
 
-``` 
+# Añadir nombre de host
+# C:\Windows\System32\drivers\etc\hosts
+# /etc/hosts
+192.168.10.10  homestead.test
+```
+
+Tips: Comandos vagrant 
+```sh
+vagrant up 
+vagrant reload --provision
+vagrant destroy
+vagrant box list
+vagrant box prune
+```
+
 
 
 ### Section 2 - Routing 
@@ -84,7 +108,7 @@ sites:
 - Basic Routing and Views
 
 /routes/web.php se definen las rutas del proyecto
-/resources/view/welcome.blade.php en este directorio se definen las vistas
+/resources/view en este directorio se definen las vistas
 
 - Pass Request Data to Views
 
