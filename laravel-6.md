@@ -1,7 +1,5 @@
 # Curso Laracast 
-
 ## Laravel 6 From Scratch 
-
 ### Section 1 - Prerequisites 
 
 - At a glance 
@@ -13,6 +11,7 @@ Laravel realiza los siguientes pasos en cada llamada:
 3. Con esos datos el controlador solicita la vista (pizza.blade.php), añade las dependencias necesarias (.js, .css, etc) y construye la visualización final
 
 - Install PHP, MySQL and Composer
+
 Instalación del entorno de desarrollo,dependencias e IDE de desarrollo
 PHP 7.2.8
 MySQL 
@@ -20,6 +19,7 @@ Se puede utilizar XAMPP para PHP y MySQL
 Composer 
 
 - The Laravel Installer
+
 Revisar la documentacion oficial de laravel para instalar a traves de composer o añadiendo el comando laravel a PATH
 Crear un projecto en blanco
 ```sh
@@ -32,6 +32,7 @@ laravel new project-name
 ```
 
 - Laravel Valet Setup
+
 Revisar la documentacion oficial de laravel para instalar Valet (Homestead)
 ```sh
 # Instalar Nirtual box de la pagina oficial (https://www.virtualbox.org/wiki/Linux_Downloads)
