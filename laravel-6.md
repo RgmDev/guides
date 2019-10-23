@@ -25,15 +25,30 @@ Crear un projecto en blanco
 ```sh
 # Instalar laravel
 composer global require laravel/installer
-# Añadir al PATH, en Ubuntu 18.04
+
+# Comprobar la instalacion de laravel 
+laravel 
+
+# Si fuera necesario...
+# Añadir al PATH (en Ubuntu 18.04)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
 # Crear un proyecto en blanco
 laravel new project-name
+cd project-name
+php artisan serve
+# Abrir en el navegador http://localhost:8000
+
 ```
 
 - Laravel Valet Setup
 
 Revisar la documentacion oficial de laravel para instalar Valet (Homestead)
+
+Instalar VirtualBox 6.x  y Vagrant 2.2.6
+
+
+
 ```sh
 # Instalar Nirtual box de la pagina oficial (https://www.virtualbox.org/wiki/Linux_Downloads)
 vboxmanage --version
