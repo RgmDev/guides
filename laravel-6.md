@@ -5,6 +5,7 @@
 ### Section 1 - Prerequisites 
 
 - At a glance 
+
 La gestión principal de Laravel se realiza en fichero routes.php que define que controlador actua sobre la url solicitada.
 Laravel realiza los siguientes pasos en cada llamada:
 1. Procesa el fichero de rutas (Routes.php) para ver el controlador que actua sobre la url solicitada
