@@ -1,6 +1,6 @@
 # Curso Laracast
 
-Acceso Laracast: informatica@mkdrecambios.com[GXNqYb2PPL]
+Acceso Laracast: 1nformatica@mkdrecambios.com[GXNqYb2PPL]
 
 1. Básico 
   * [Laravel 6 From Scratch](https://laracasts.com/series/laravel-6-from-scratch)
