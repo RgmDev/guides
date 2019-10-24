@@ -1,4 +1,22 @@
-# Curso Laracast 
+# Curso Laracast
+
+Acceso Laracast: informatica@mkdrecambios.com[GXNqYb2PPL]
+
+1. Básico 
+  * [Laravel 6 From Scratch](https://laracasts.com/series/laravel-6-from-scratch)
+  * [Simple Rules for Simpler Code](https://laracasts.com/series/simple-rules-for-simpler-code)
+  * [Solid Principales](https://laracasts.com/series/solid-principles-in-php)
+
+2. Intermedio
+  * [Vue 2 step by step](https://laracasts.com/series/learn-vue-2-step-by-step)
+  * [Be awesome in PHPStorm](https://laracasts.com/series/how-to-be-awesome-in-phpstorm) / [Visula Studio Code for PHP Developers](https://laracasts.com/series/visual-studio-code-for-php-developers)
+  * [Testing Laravel](https://laracasts.com/series/phpunit-testing-in-laravel)
+
+3. Avanzado 
+  * [Build a Laravel app with TDD](https://laracasts.com/series/build-a-laravel-app-with-tdd)
+  * [Testing Vue](https://laracasts.com/series/testing-vue)
+
+
 ## Laravel 6 From Scratch 
 ### Section 1 - Prerequisites 
 
