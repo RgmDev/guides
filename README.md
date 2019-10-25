@@ -1,8 +1,9 @@
-# Library
+# Libreria
 
-Guides on anything
+Guias de cualquier cosa
 
-> Develop a project for each element
+> Desarrollar un proyecto para cada elemento
 
    - Laravel v6 (Laracast)
    - PHP Slim v4
+   - Git
