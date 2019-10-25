@@ -1,6 +1,6 @@
 # Libreria
 
-Guias de cualquier cosa
+Guías de cualquier cosa
 
 > Desarrollar un proyecto para cada elemento
 
