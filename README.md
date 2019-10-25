@@ -6,4 +6,4 @@ Guías de cualquier cosa
 
    - Laravel v6 (Laracast)
    - PHP Slim v4
-   - Git v2
+   - Git 
