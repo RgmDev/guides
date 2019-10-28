@@ -122,18 +122,127 @@ vagrant box prune
 
 - Basic Routing and Views
 
-/routes/web.php se definen las rutas del proyecto
-/resources/view en este directorio se definen las vistas
+/routes/web.php -> Fichero de definición de rutas 
+/resources/view -> Directorio de vistas (welcome.blade.php / welcome.php)
+```php
+/* web.php */
+Route::get( '/', function(){
+	// Diferentes maneras de devolver contenido
+	// Con una vista (welcome.blade.php)
+	return view('welcome'); 
+	// Texto literal
+	return "Hello world!";
+	// JSON
+	return [ 'foo' => 'bar' ];
+}
+```
 
 - Pass Request Data to Views
 
-Como pasar parametros por url a la vista
+Podemos pasar parámetros a la vista a través de la URL
+
+*laracast.test/?name=ruben*
+
+```php
+/* web.php */
+Route::get( '/', function(){	
+	$name = request('name');
+	return view('welcome', [
+		'name' => $name
+	]);
+});
+```
+
+```php
+/* welcome.blade.php */
+<html>
+...
+	<h1> {{ $name }} </h1> // con htmlspecialchars 
+	<h1> {!! $name !!} </h1> // sin htmlspecialchars (Permite la inyección de codigo html o js)
+```
 
 - Route Wildcards 
 
-Como parametrizar las rutas y gestionar el contenido dependiendo del parametro
+Pasar por URL un parámetro comodín
+
+*laracast.test/posts/first-post|second-post*
+
+```php
+/* web.php */
+Route::get( '/posts/{post}', function($post){	
+	// Datos de ejemplo a modo de base de datos
+	$posts = [
+		'first-post' => 'My first post',
+		'second-post' => 'Second post'
+	];
+	
+	if(! array_key_exist($post, $posts)){
+		abort(404, 'Post not found.');
+	}
+	
+	return view('post', [
+		'post' => $posts[$post]
+	]);
+});
+```
+
+```php
+/* post.blade.php */
+<html>
+...
+	<h1> {{ $post }} </h1>  
+```
 
 - Routing to Controllers
 
-Gestionar las rutas a través de controladores y como crear controladores con php artisan
+Utilizando controladores para las rutas
+
+*laracast.test/posts/first-post|second-post*
+
+```php
+/* web.php */
+Route::get( '/posts/{post}', 'PostController@show');
+```
+
+Para crear un controlador:
+1. Nuevo archivo en /app/http/controllers
+2. Con php artisan
+```php
+php artisan make:controller PostController
+php artisan // Para ver más opciones
+```
+
+```php
+/* PostController.php */
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+class PostController extends Controller {
+	public function show($post){
+		$posts = [
+		'first-post' => 'My first post',
+		'second-post' => 'Second post'
+	];
+	if(! array_key_exist($post, $posts)){
+		abort(404, 'Post not found.');
+	}
+	return view('post', [
+		'post' => $posts[$post];
+	]);
+}
+```
+
+### Section 3 - Database Access
+
+- Setup a Database Connection
+
+En el archivo /.env configuramos la conexión a la base de datos
+
+En /config/database.php se encuentran las diferentes configuraciones para las diferentes bases de datos
+
+> ¡OJO! Ten en cuenta que si estas trabajando con Homestead, la base de datos local se encuentra en la máquina vistual y no en el equipo local, a la que se accedería si desplegaramos el proyecto con php artisan serve 
+
+- Hello Eloquent
+- Migrations 101
+- Generate Multiple Files in a Single Command
+- Business Logic
 
