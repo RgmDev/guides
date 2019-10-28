@@ -239,7 +239,7 @@ En el archivo /.env configuramos la conexión a la base de datos
 
 En /config/database.php se encuentran las diferentes configuraciones para las diferentes bases de datos
 
-> ¡OJO! Ten en cuenta que si estas trabajando con Homestead, la base de datos local se encuentra en la máquina vistual y no en el equipo local, a la que se accedería si desplegaramos el proyecto con php artisan serve 
+> ¡OJO! Ten en cuenta que si estas trabajando con Homestead, la base de datos local se encuentra en la máquina virtual y no en el equipo local, a la que se accedería si desplegaramos el proyecto con php artisan serve 
 
 - Hello Eloquent
 - Migrations 101
