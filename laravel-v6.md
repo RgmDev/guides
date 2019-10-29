@@ -239,9 +239,60 @@ En el archivo /.env configuramos la conexión a la base de datos
 
 En /config/database.php se encuentran las diferentes configuraciones para las diferentes bases de datos
 
-> ¡OJO! Ten en cuenta que si estas trabajando con Homestead, la base de datos local se encuentra en la máquina virtual y no en el equipo local, a la que se accedería si desplegaramos el proyecto con php artisan serve 
+> ¡OJO! Ten en cuenta que si estas trabajando con Homestead, la base de datos local se encuentra en la máquina virtual y no en el equipo local, a la que se accedería si desplegaramos el proyecto con php artisan serve
+
+```php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class PostController extends Controller
+{
+    public function show($slug)
+    {
+        $post = \DB::table('posts')->where('slug', $slug)->first();
+	
+	if(! post){
+		abort(404);
+	}
+
+        return view('post', [
+            'post' => $post
+        ]);
+    }
+}
+```
 
 - Hello Eloquent
+
+La clase Eloquent nos permite crear modelos que definen las tablas de la base de datos y nos ayudarán a crear el API, mantendremos el código más limpio y podremos definir reglas de negocio facilmente. 
+```php
+// El nombre del modelo debe coincidir con el de la tabla de la base de datos
+php artisan make:model NombreTabla
+```
+
+```php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+// Es necesario añadir la ruta al modelo
+use App\Posts;
+
+class PostController extends Controller
+{
+    public function show($slug)
+    {
+	// fistOrFail provoca una excepcion si no encuentra registros (abort(404))
+	$post = Posts::where('slug', $slug)->firstOrFail();
+
+        return view('post', [
+            'post' => $post
+        ]);
+    }
+}
+``` 
+
 - Migrations 101
 - Generate Multiple Files in a Single Command
 - Business Logic
