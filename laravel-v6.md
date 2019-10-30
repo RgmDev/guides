@@ -300,6 +300,56 @@ class Posts extends Controller
 ``` 
 
 - Migrations 101
+
+Las migraciones nos ayudan a desplegar la base de dastos sin necesidad de SQL.
+
+Para crear una migración, por ejemplo, para crear una tabla 
+```php
+php artisan make:migration create_posts_table
+```
+Se creará el archivo correspondiente en App/Database/migrations donde podremos definir los campos de las tablas y sus propiedades.
+```php
+php artisan migration // Para iniciar la migracion (crear tablas y demás)
+php artisan migrate:rollback // Para retroceder a la última migración
+php artisan migrate:fresh // Reconstruye la base de datos
+```
+
 - Generate Multiple Files in a Single Command
+
+En un proyecto Laravel para definir objetos crearemos un modelo, un controlador y una migración, podemos realizar las tres acciones al mismo tiempo con el comando:
+```php
+php artisan make:model Modelo -mc
+```
+
 - Business Logic
+
+En Laravel disponemos de una consola que nos permite interactuar con la base de datos
+```php
+php artisan tinker
+
+// Guardar un registro en BBDD
+$assignment = new App\Assignment;
+$assignment->body = 'Finish school';
+$assignment->save();
+
+// Realizar consultas
+App\Assignment::all();
+App\Assignment::first();
+App\Assignment::where('completed', false)->get();
+
+// Podemos definir funciones en el modelo para ejecutar en la consola tinker
+/*
+// App\Http\Assignment.php
+class Assignment extends Model
+{
+    public function complete(){
+        $this->completed = true;
+        $this->save();
+    }
+}
+*/
+$assignment = App\Assignment::first();
+$assignment->complete();
+```
+
 
