@@ -265,13 +265,19 @@ class PostController extends Controller
 
 - Hello Eloquent
 
-La clase Eloquent nos permite crear modelos que definen las tablas de la base de datos y nos ayudarán a crear el API, mantendremos el código más limpio y podremos definir reglas de negocio fácilmente. 
+La clase Eloquent nos permite crear modelos que definen las tablas de la base de datos y nos ayudarán a crear el API, mantendremos el código más limpio y podremos definir reglas de negocio fácilmente.
 ```php
 // El nombre del modelo debe coincidir con el de la tabla de la base de datos
-php artisan make:model NombreTabla
+php artisan make:model Posts
 ```
 
+Se creará el archivo para el modelo en /App/Http/Controllers/
+
+Para utilizar los modelos, añadir "use App\Posts"
+
+
 ```php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -279,7 +285,7 @@ use Illuminate\Http\Request;
 // Es necesario añadir la ruta al modelo
 use App\Posts;
 
-class PostController extends Controller
+class Posts extends Controller
 {
     public function show($slug)
     {
