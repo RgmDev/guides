@@ -352,4 +352,54 @@ $assignment = App\Assignment::first();
 $assignment->complete();
 ```
 
+### Section 4 - Views
+
+- Layout Pages
+
+Se pueden crear marcos que nos sirvan de plantillas para crear otras páginas
+```php
+/* layout.blade.php */
+<html>
+	<head></head>
+	<body>
+		@yield('content')
+		<!-- @yield('content-2') -->
+		<!-- @yield('content-3') -->
+	</body>
+</html>
+	
+/* wellcome.blade.php */
+
+@extends('layout')
+@section('content')
+            <div class="content">
+                <h6>wellcome.blade</h6>
+            </div>
+@endsection
+	
+```
+
+- Integrate a Site Simple
+
+En el directorio /public se pueden agregar librerias externas, se pueden añadir directorios accesibles /css, /js...
+
+- Set an Active Menu Link
+
+Para marcar los botones de navegación activos en cada URL podemos hacerlo de una manera sencilla con los atributos de Request:
+```php
+<ul>
+	<li class="{{ Request::path() == '/' ? 'current_page' : '' }}"><a href="/">Home</li>
+	<li class="{{ Request::path() == '/about' ? 'current_page' : '' }}"><a href="/about">About</li>
+	<li class="{{ Request::path() == '/contact' ? 'current_page' : '' }}"><a href="/contact">Contact</li>
+</ul>
+```
+
+- Asset Compilation with Laravel Mix and Webpack
+
+
+
+- Render Dinamyc Data
+- Render Dinamyc Data: Part 2
+- Homework Solutions
+
 
