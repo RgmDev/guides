@@ -199,7 +199,7 @@ Utilizando controladores para las rutas
 
 *laracast.test/posts/first-post|second-post*
 
-```php
+```sh
 /* web.php */
 Route::get( '/posts/{post}', 'PostController@show');
 ```
@@ -207,7 +207,7 @@ Route::get( '/posts/{post}', 'PostController@show');
 Para crear un controlador:
 1. Nuevo archivo en /app/http/controllers
 2. Con php artisan
-```php
+```sh
 php artisan make:controller PostController
 php artisan // Para ver más opciones
 ```
@@ -266,7 +266,7 @@ class PostController extends Controller
 - Hello Eloquent
 
 La clase Eloquent nos permite crear modelos que definen las tablas de la base de datos y nos ayudarán a crear el API, mantendremos el código más limpio y podremos definir reglas de negocio fácilmente.
-```php
+```sh
 // El nombre del modelo debe coincidir con el de la tabla de la base de datos
 php artisan make:model Posts
 ```
@@ -304,11 +304,11 @@ class Posts extends Controller
 Las migraciones nos ayudan a desplegar la base de dastos sin necesidad de SQL.
 
 Para crear una migración, por ejemplo, para crear una tabla 
-```php
+```sh
 php artisan make:migration create_posts_table
 ```
 Se creará el archivo correspondiente en App/Database/migrations donde podremos definir los campos de las tablas y sus propiedades.
-```php
+```sh
 php artisan migration // Para iniciar la migracion (crear tablas y demás)
 php artisan migrate:rollback // Para retroceder a la última migración
 php artisan migrate:fresh // Reconstruye la base de datos
@@ -317,14 +317,14 @@ php artisan migrate:fresh // Reconstruye la base de datos
 - Generate Multiple Files in a Single Command
 
 En un proyecto Laravel para definir objetos crearemos un modelo, un controlador y una migración, podemos realizar las tres acciones al mismo tiempo con el comando:
-```php
+```sh
 php artisan make:model Modelo -mc
 ```
 
 - Business Logic
 
 En Laravel disponemos de una consola que nos permite interactuar con la base de datos
-```php
+```sh
 php artisan tinker
 
 // Guardar un registro en BBDD
@@ -396,7 +396,49 @@ Para marcar los botones de navegación activos en cada URL podemos hacerlo de un
 
 - Asset Compilation with Laravel Mix and Webpack
 
+Laravel Mix nos proporciona una manera sencilla de trabajar con pre-procesadores de CSS y JS
 
+Necesitaremos Nodejs y NPM
+```sh
+node -v
+npm -v
+```
+
+En webpack.json definimos los ficheros de entrada y salida
+```js
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css');
+```
+
+En package.json definiremos las dependencias de nuestro proyecto, debemos instalar estas dependencias
+```sh
+npm install
+```
+
+Laravel Mix es solo la capa superior gestionada por Webpack, en package.json también encontramos los comando que necesitaremos ejecutar para realizar la copilación de los ficheros
+```sh
+npm run dev // Compila nuestros archivos 
+npm run watch // Compila los archivos en vivo 
+npm run production // Compila los archivos en versión minificada
+```
+
+Laravel Mix trabaja con los principales pre-procesadores de CSS y JS: React, LESS, SASS, Stylus, PostCSS... 
+
+Se suele asociar un tiemstamp a la ruta de acceso a los archivos compilados para forzar a los navegadores a recargar el archivo, Laravel Mix puede manejar esto con el metodo version()
+```js
+mix.js('resources/js/app.js', 'public/js').version();
+```
+Tras generar el archivo compilado, tendrá el mismo nombre, para gestionar esto en nuestro HTML realizamos el enlace al archvivo de la siguiente manera: 
+```html
+<script src="{{ mix('/js/app.js') }}"></script>
+```
+Está práctica es utilizada en los entornos de producción, para realizar este filtro en nuestro webpack.json 
+```js
+mix.js('resources/js/app.js', 'public/js');
+if (mix.inProduction()) {
+    mix.version();
+}
+```
 
 - Render Dinamyc Data
 - Render Dinamyc Data: Part 2
