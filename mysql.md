@@ -12,6 +12,9 @@ DROP USER 'usuario'@'localhost';
 -- Después de conceder/revocar permisos recargar para que surjan efecto
 FLUSH PRIVILEGES;
 
+-- Ver los permisos de un usuario 
+SHOW GRANTS FOR 'usuario'@'%'
+
 -- Conceder permisos
 GRANT ALL PRIVILEGES ON *.* TO 'nuevousuario'@'localhost';
 GRANT [tipo de permiso] ON [nombre de la base de datos].[nombre de la tabla] TO '[nombredeusuario]'@'localhost';
