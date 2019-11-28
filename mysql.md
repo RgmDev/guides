@@ -3,6 +3,9 @@
 ## Usuarios y permisos
 
 ```sql
+-- Ver Usuarios 
+SELECT * FROM mysql.user
+
 -- Crear usuario
 CREATE USER 'nuevousuario'@'localhost' IDENTIFIED BY 'contraseña';
 
