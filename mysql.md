@@ -43,7 +43,6 @@ REVOKE [tipo de permiso] ON [nombre de la base de datos].[nombre de la tabla] FR
 ## Consulta 
 ```sql
 -- COUNT() Condicional
-	
 SELECT 
     COUNT( IF(status = 'Cancelled', 1, NULL) ) 'Cancelled',
     COUNT( IF(status = 'On Hold', 1, NULL) ) 'On Hold',
