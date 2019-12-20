@@ -1,5 +1,20 @@
 # MySQL
 
+> Entrar sin contraseñas a la BBDD
+```sh
+# Entrar en la maquina y detener el servicio mysql
+/etc/init.d/mysqld stop
+# Activar modo de entrada sin contraseña
+mysqld_safe –skip-grant-tables &amp;
+# Cambiar contraseñas
+mysql -u root
+use mysql;
+update user set password=PASSWORD("nueva-contraseña") where user='root';
+flush privileges;
+quit
+# Reiniciar el servicio de la base de datos
+```
+
 ## Usuarios y permisos
 
 ```sql
