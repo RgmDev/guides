@@ -75,16 +75,27 @@ SELECT * FROM ourtable;
 SELECT now() FROM DUAL;
 
 -- Evento que se ejecuta UNA SOLA VEZ (One time)
-CREATE EVENT testevent-one-time
+CREATE EVENT testevent_one_time
 ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 MINUTE
+ON COMPLETION PRESERVE -- Para seguir almacenado una vez ejecutado
 DO UPDATE ourdb.ourtable SET a = NOW();
 
 SHOW EVENTS FROM ourdb
 
 -- Evento RECURRENTE (Recurring)
-CREATE EVENT testevent-recurring
+CREATE EVENT testevent_recurring
 ON SCHEDULE EVERY 1 MINUTE STARTS '2019-12-20 14:13:00'
 DO UPDATE ourdb.ourtable SET a = NOW();
+
+-- Eventos de VARIAS SENTENCIAS
+DELIMITER $$
+CREATE EVENT testevent
+ON SCHEDULE EVERY 1 MINUTE STARTS '2019-12-20 14:13:00'
+DO BEGIN
+	TRUNCATE TABLE ourdb.ourtable; 
+	INSERT INTO ourdb.ourtable VALUES (NOW());
+END$$
+DELIMITER ;
 
 -- HABILITAR / DESHABILITAR EVENTOS 
 ALTER EVENT testevent DISABLE;
