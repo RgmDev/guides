@@ -55,6 +55,46 @@ REVOKE [tipo de permiso] ON [nombre de la base de datos].[nombre de la tabla] FR
 
 ## Bases de datos y tablas
 
+## Eventos y ejecuciones programadas
+https://codigofacilito.com/articulos/eventos-mysql
+```sql
+SHOW VARIABLES;
+SHOW GLOBAL VARIABLES;
+SHOW SESSION VARIABLES;
+
+SHOW GLOBAL VARIABLES WHERE variable_name = 'event_scheduler'
+SET GLOBAL event_scheduler = 'ON' -- En AWS/RDS se modifica en Paremeter groups, editar el que haya o crear uno, buscar dentro del grupo el parametro event_scheduler y cambiar su valor a ON
+
+CREATE DATABASE ourdb;
+CREATE TABLE ourdb.ourtable (a TIME);
+INSERT INTO ourdb.ourtable VALUES (NOW());
+COMMIT; 
+
+USE ourdb;
+SELECT * FROM ourtable;
+SELECT now() FROM DUAL;
+
+-- Evento que se ejecuta UNA SOLA VEZ (One time)
+CREATE EVENT testevent-one-time
+ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 MINUTE
+DO UPDATE ourdb.ourtable SET a = NOW();
+
+SHOW EVENTS FROM ourdb
+
+-- Evento RECURRENTE (Recurring)
+CREATE EVENT testevent-recurring
+ON SCHEDULE EVERY 1 MINUTE STARTS '2019-12-20 14:13:00'
+DO UPDATE ourdb.ourtable SET a = NOW();
+
+-- HABILITAR / DESHABILITAR EVENTOS 
+ALTER EVENT testevent DISABLE;
+ALTER EVENT testevent ENABLE;
+
+DROP EVENT testevent-recurring;
+```
+
+
+
 ## Consulta 
 ```sql
 -- COUNT() Condicional
