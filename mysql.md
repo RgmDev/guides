@@ -101,7 +101,7 @@ DELIMITER ;
 ALTER EVENT testevent DISABLE;
 ALTER EVENT testevent ENABLE;
 
-DROP EVENT testevent-recurring;
+DROP EVENT testevent_recurring;
 ```
 
 
