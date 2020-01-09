@@ -5,6 +5,7 @@ https://medium.com/@ancizj393/crear-una-clave-ssh-en-git-y-vincular-en-tu-cuenta
 
 ## Primeros pasos, ejemplo simple
 https://codigofacilito.com/articulos/commits-administrar-tu-repositorio
+https://stackoverflow.com/questions/24114676/git-error-failed-to-push-some-refs-to
 
 Tenemos un proyecto local y queremos repositarlo y gestionarlo con git/Github 
 
