@@ -3,6 +3,10 @@
 ## Sincronizar las claves SSH 
 https://medium.com/@ancizj393/crear-una-clave-ssh-en-git-y-vincular-en-tu-cuenta-de-github-e7a6b22bc93f
 
+## Fix Error
+Permission denied (publickey)
+https://stackoverflow.com/questions/16074832/cannot-push-to-git-repository-on-bitbucket/28034014
+
 ## Primeros pasos, ejemplo simple
 https://codigofacilito.com/articulos/commits-administrar-tu-repositorio
 https://stackoverflow.com/questions/24114676/git-error-failed-to-push-some-refs-to
