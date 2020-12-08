@@ -1,3 +1,39 @@
+# Configurar git desde cero
+
+## Escenario 
+
+Tenemos nuestra cuenta de github y un repositorio local para agregar a nuestra cuenta 
+
+## Variables de configuración 
+
+Configurar el nombre de usuario y el correo que identificara los commits
+```sh
+git config --list
+git config --global user.name "rugo"
+git config --global user.email rubengm410@gmail.com
+```
+
+## Configurar las claves SSH
+
+Generamos la clave SSH que identifica al equipo y la añadimos al SSH Agent
+```sh
+ssh-keygen -t rsa -b 4096 -C "rubengm410@gmail.com"
+eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
+```
+En nuestra cuenta de Github >> **Settings** >> **SSH and GPG keys** >> **New SSH Key**
+
+Agregar el contenido de **~/.ssh/id_rsa.pub** y un título descriptivo
+
+## Iniciar el repositorio en el directorio local, realizar el primer commit y guardar los cambios
+```sh
+git init
+git add .
+git commit -m "commit inicial"
+git push -u origin master
+```
+
+
+
 # Git
 
 ## Sincronizar las claves SSH 
