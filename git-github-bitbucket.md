@@ -24,7 +24,7 @@ En nuestra cuenta de Github >> **Settings** >> **SSH and GPG keys** >> **New SSH
 
 Agregar el contenido de **~/.ssh/id_rsa.pub** y un título descriptivo
 
-## Iniciar el repositorio en el directorio local, realizar el primer commit y guardar los cambios
+## Iniciar el repositorio en el directorio local, realizar el primer commit y guardar los cambios en el repositorio remoto
 ```sh
 git init
 git add .
