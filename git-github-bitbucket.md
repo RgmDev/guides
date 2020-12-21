@@ -6,7 +6,8 @@ Tenemos nuestra cuenta de github y un repositorio local para agregar a nuestra c
 
 ## Variables de configuración 
 
-Configurar el nombre de usuario y el correo que identificara los commits
+- Configurar el nombre de usuario y el correo que identificara los commits
+
 ```sh
 git config --list
 git config --global user.name "rugo"
