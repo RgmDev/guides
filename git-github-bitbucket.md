@@ -24,6 +24,26 @@ En nuestra cuenta de Github >> **Settings** >> **SSH and GPG keys** >> **New SSH
 
 Agregar el contenido de **~/.ssh/id_rsa.pub** y un título descriptivo
 
+Agregar el origen del repositorio al archivo config 
+```sh
+nano ~/.ssh/config
+```
+
+Añadir la identificación para el sistema de repositorios correspondiente, en este ejemplo, Bitbucket
+```sh 
+Host bitbucket.org
+    IdentityFile ~/.ssh/id_rsa
+```
+
+Comporbar la conexión 
+```sh
+ssh -T git@bitbucket.org
+logged in as ruben-gonzalez
+
+You can use git or hg to connect to Bitbucket. Shell access is disabled
+```
+
+
 ## Iniciar el repositorio en el directorio local, realizar el primer commit y guardar los cambios en el repositorio remoto
 ```sh
 git init
@@ -31,7 +51,6 @@ git add .
 git commit -m "commit inicial"
 git push -u origin master
 ```
-
 
 
 # Git
