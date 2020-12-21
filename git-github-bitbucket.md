@@ -16,7 +16,8 @@ git config --global user.email rubengm410@gmail.com
 
 ## Configurar las claves SSH
 
-Generamos la clave SSH que identifica al equipo y la añadimos al SSH Agent
+- Generamos la clave SSH que identifica al equipo y la añadimos al SSH Agent
+
 ```sh
 ssh-keygen -t rsa -b 4096 -C "rubengm410@gmail.com"
 eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
@@ -25,18 +26,20 @@ En nuestra cuenta de Github >> **Settings** >> **SSH and GPG keys** >> **New SSH
 
 Agregar el contenido de **~/.ssh/id_rsa.pub** y un título descriptivo
 
-Agregar el origen del repositorio al archivo config 
+- Agregar el origen del repositorio al archivo config 
+
 ```sh
 nano ~/.ssh/config
 ```
 
-Añadir la identificación para el sistema de repositorios correspondiente, en este ejemplo, Bitbucket
+- Añadir la identificación para el sistema de repositorios correspondiente, en este ejemplo, Bitbucket
+
 ```sh 
 Host bitbucket.org
     IdentityFile ~/.ssh/id_rsa
 ```
 
-Comporbar la conexión 
+- Comporbar la conexión 
 ```sh
 ssh -T git@bitbucket.org
 logged in as ruben-gonzalez
